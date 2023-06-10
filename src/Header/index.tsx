@@ -1,3 +1,5 @@
+'use client';
+
 import { FC, ReactNode, useEffect, useState } from 'react';
 import { Box, Container, IconButton } from '@mui/material';
 import { HeaderHeight } from './types';

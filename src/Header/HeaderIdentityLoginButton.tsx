@@ -1,3 +1,5 @@
+'use client';
+
 import { ButtonBase } from '@mui/material';
 import Link from 'next/link';
 

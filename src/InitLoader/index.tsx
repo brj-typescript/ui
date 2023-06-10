@@ -1,3 +1,5 @@
+'use client';
+
 import { FC, ReactNode } from 'react';
 import { Box, CircularProgress, Typography } from '@mui/material';
 import { Theme } from '@brj-typescript/global-context';

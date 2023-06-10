@@ -1,3 +1,5 @@
+'use client';
+
 import { FC } from 'react';
 import { Color } from '@brj-typescript/global-context';
 import { Box } from '@mui/material';

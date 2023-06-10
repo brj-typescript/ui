@@ -1,3 +1,5 @@
+'use client';
+
 import { FC, useState } from 'react';
 import { Box, Button, ButtonBase } from '@mui/material';
 import { UserIdentity } from '@brj-typescript/global-context';

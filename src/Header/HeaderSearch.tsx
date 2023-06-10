@@ -1,3 +1,5 @@
+'use client';
+
 import { FC, useEffect, useState } from 'react';
 import { Box, IconButton, InputAdornment, TextField } from '@mui/material';
 import { SearchConfiguration, Color } from '@brj-typescript/global-context';

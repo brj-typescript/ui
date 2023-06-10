@@ -1,3 +1,5 @@
+'use client';
+
 import { Box } from '@mui/material';
 import { HeaderIdentityLoginButton } from './HeaderIdentityLoginButton';
 import { HeaderIdentityUserPopper } from './HeaderIdentityUserPopper';

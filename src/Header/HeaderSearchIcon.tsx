@@ -1,3 +1,5 @@
+'use client';
+
 import { FC } from 'react';
 import { IconButton } from '@mui/material';
 import { Color } from '@brj-typescript/global-context';

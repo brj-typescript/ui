@@ -1,3 +1,5 @@
+'use client';
+
 import { Theme, Color, useShareObject } from '@brj-typescript/global-context';
 import { Container } from '@mui/material';
 import { Box } from '@mui/system';

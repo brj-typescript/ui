@@ -1,3 +1,5 @@
+'use client';
+
 import { FC, ReactNode, useState } from 'react';
 import { Box, ButtonBase, Container } from '@mui/material';
 import { HeaderHeight } from './types';

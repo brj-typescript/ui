@@ -1,3 +1,5 @@
+'use client';
+
 import { GlobalAppState, StoreData, createStore, loadInitStorage, useEffectOnce } from '@brj-typescript/global-context';
 import { Box, createTheme, ThemeProvider } from '@mui/material';
 import { FC, ReactNode, useState } from 'react';
