@@ -5,6 +5,7 @@ import { Box, IconButton, InputAdornment, TextField } from '@mui/material';
 import { SearchConfiguration, Color } from '@brj-typescript/global-context';
 import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from '@mui/icons-material/Close';
+import { usePathname } from 'next/navigation';
 import { useRouter } from 'next/router';
 
 type HeaderSearchProps = {
@@ -13,14 +14,15 @@ type HeaderSearchProps = {
 };
 
 export const HeaderSearch: FC<HeaderSearchProps> = ({ configuration, onClose }) => {
-  const { asPath, query } = useRouter();
+  const { query } = useRouter();
+  const pathname = usePathname();
   const [searchQuery, setSearchQuery] = useState('');
-  const isSearchActive = Boolean(configuration?.serpUrl === asPath.replace(/^\/?(.+?)\?(.*)$/, '$1'));
+  const isSearchActive = Boolean(configuration?.serpUrl === pathname.replace(/^\/?(.+?)\?(.*)$/, '$1'));
   const queryParam = configuration.queryParameterName || 'q';
 
   useEffect(() => {
     if (!isSearchActive) return;
-    setSearchQuery(asPath === '/' ? '' : String(query[queryParam] || ''));
+    setSearchQuery(pathname === '/' ? '' : String(query[queryParam] || ''));
   }, [isSearchActive]);
 
   useEffect(() => {

@@ -10,6 +10,7 @@ import { HeaderSearch } from './HeaderSearch';
 import { ThemeSwitch } from '../ThemeSwitch';
 import { BrjLogo } from '../BrjLogo';
 import { Card } from '../Card';
+import { usePathname } from 'next/navigation';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -25,12 +26,13 @@ type HeaderProps = {
 };
 
 export const Header: FC<HeaderProps> = ({ children, appName, orientation, search, enableLogin }) => {
-  const { asPath, events } = useRouter();
+  const { events } = useRouter();
+  const pathname = usePathname();
   const [isSearchOpen, setSearchOpen] = useState(false);
   const [isMenuOpen, setMenuOpen] = useState(false);
 
   const closeHamburger = () => setMenuOpen(false);
-  const isSearchActive = Boolean(search && search?.serpUrl === asPath.replace(/^\/?(.+?)\?(.*)$/, '$1'));
+  const isSearchActive = Boolean(search && search?.serpUrl === pathname.replace(/^\/?(.+?)\?(.*)$/, '$1'));
 
   useEffect(() => {
     events.on('routeChangeStart', closeHamburger);
@@ -43,8 +45,8 @@ export const Header: FC<HeaderProps> = ({ children, appName, orientation, search
   }, [isSearchActive]);
 
   useEffect(() => {
-    if (asPath === '/') setSearchOpen(false);
-  }, [asPath]);
+    if (pathname === '/') setSearchOpen(false);
+  }, [pathname]);
 
   return (
     <Box sx={{ height: HeaderHeight, padding: '.6em 0', background: Color.dark, color: 'white' }}>

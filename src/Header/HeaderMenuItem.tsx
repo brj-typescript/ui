@@ -4,8 +4,8 @@ import { FC, ReactNode, useState } from 'react';
 import { Box, ButtonBase, Container } from '@mui/material';
 import { HeaderHeight } from './types';
 import { Color } from '@brj-typescript/global-context';
+import { usePathname } from 'next/navigation';
 import { Card } from '../Card';
-import { useRouter } from 'next/router';
 import Link from 'next/link';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
@@ -18,9 +18,9 @@ type HeaderMenuItemProps = {
 };
 
 export const HeaderMenuItem: FC<HeaderMenuItemProps> = ({ label, href, selected, children }) => {
-  const { asPath } = useRouter();
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  const useBorder = (color: string) => `2px solid ${selected || href === asPath || open ? Color.orange : color}`;
+  const useBorder = (color: string) => `2px solid ${selected || href === pathname || open ? Color.orange : color}`;
 
   const button = (
     <ButtonBase
